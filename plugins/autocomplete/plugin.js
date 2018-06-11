@@ -340,8 +340,9 @@
 			selection.selectRanges( [ this.model.range ] );
 			editor.insertHtml( this.getHtmlToInsert( item ), 'text' );
 
+			// Insert following space after accepting match (#2008).
 			if ( this.followingSpace ) {
-				insertSpaceAfterMatch( editor );
+				insertFollowingSpace( editor );
 			}
 
 			editor.fire( 'saveSnapshot' );
@@ -1254,7 +1255,7 @@
 		return editor.window.getFrame().getParent();
 	}
 
-	function insertSpaceAfterMatch( editor ) {
+	function insertFollowingSpace( editor ) {
 		var selection = editor.getSelection();
 
 		var nextNode = selection.getRanges()[ 0 ].getNextNode( function( node ) {
