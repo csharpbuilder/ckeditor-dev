@@ -1267,7 +1267,7 @@
 			range.setStart( nextNode, 1 );
 			selection.selectRanges( [ range ] );
 		} else {
-			editor.insertHtml( '&nbsp;' );
+			editor.insertHtml( '&nbsp;', 'text' );
 		}
 	}
 
